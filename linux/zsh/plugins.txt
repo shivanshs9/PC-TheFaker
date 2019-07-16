@@ -1,0 +1,12 @@
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+robbyrussell/oh-my-zsh folder:plugins/colored-man-pages
+robbyrussell/oh-my-zsh folder:plugins/adb
+robbyrussell/oh-my-zsh folder:plugins/django
+robbyrussell/oh-my-zsh folder:plugins/httpie
+robbyrussell/oh-my-zsh folder:plugins/pip
+robbyrussell/oh-my-zsh folder:plugins/extract
+robbyrussell/oh-my-zsh folder:plugins/fancy-ctrl-z
+robbyrussell/oh-my-zsh folder:plugins/python
+robbyrussell/oh-my-zsh folder:plugins/autoenv

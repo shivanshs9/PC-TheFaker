@@ -1,0 +1,86 @@
+37:450  1:552  Found UEFI Acpi 2.0 RSDP at 8AFFD014
+37:450  0:000  Saving ACPI tables from RSDP 8AFFD014 to EFI\CLOVER\ACPI\origin ...
+37:450  0:000   8AFFD014: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36 -> RSDP.aml
+37:720  0:269    (Xsdt: 8AFBA188, Rsdt: 8AFBA0C4)
+37:720  0:000    8AFBA188: 'XSDT', 'SLIC-MPC', Rev: 1, Len: 292 -> XSDT.aml
+37:744  0:024    8AFBA0C4: 'RSDT', 'SLIC-MPC', Rev: 1, Len: 164 -> RSDT.aml
+37:771  0:026    Tables in Xsdt: 32
+37:771  0:000    0. 8AFE2000: 'FACP', 'SLIC-MPC', Rev: 5, Len: 268 -> FACP.aml
+37:798  0:026        (Dsdt: 8AFBD000, Facs: 8AF52000, XDsdt: 8AFBD000, XFacs: 0)
+37:798  0:000        8AFBD000: 'DSDT', '8361', Rev: 2, Len: 135739 -> DSDT.aml
+37:841  0:043        8AF52000: 'FACS', Ver: 2, Len: 64 -> FACS.aml
+37:867  0:026    1. 8AFFC000: 'UEFI', '8361', Rev: 1, Len: 566 -> UEFI.aml
+37:893  0:026    2. 8AFFB000: 'UEFI', '8361', Rev: 1, Len: 66 -> UEFI.aml
+37:923  0:029    3. 8AFFA000: 'IHIS', '8361', Rev: 1, Len: 56 -> IHIS.aml
+37:949  0:026    4. 8AFF3000: 'SSDT', '8361', Rev: 1, Len: 26786 -> SSDT-0-8361.aml
+37:978  0:028    5. 8AFF2000: 'MSDM', 'SLIC-MPC', Rev: 3, Len: 85 -> MSDM.aml
+38:006  0:027    6. 8AFF1000: 'SSDT', '8361', Rev: 2, Len: 1219 -> SSDT-1-8361.aml
+38:034  0:027    7. 8AFF0000: 'SSDT', '8361', Rev: 2, Len: 70 -> SSDT-2-8361.aml
+38:055  0:021    8. 8AFEF000: 'TPM2', '8361', Rev: 3, Len: 52 -> TPM2.aml
+38:076  0:020    9. 8AFEB000: 'SSDT', '8361', Rev: 2, Len: 12588 -> SSDT-3-8361.aml
+38:096  0:020    10. 8AFE7000: 'SSDT', '8361', Rev: 2, Len: 15784 -> SSDT-4-8361.aml
+38:117  0:020    11. 8AFE6000: 'ASF!', '8361', Rev: 32, Len: 165 -> ASF!.aml
+38:137  0:019    12. 8AFE5000: 'ASPT', '8361', Rev: 7, Len: 52 -> ASPT.aml
+38:157  0:020    13. 8AFE4000: 'BOOT', '8361', Rev: 1, Len: 40 -> BOOT.aml
+38:178  0:020    14. 8AFE3000: 'DBGP', 'SLIC-MPC', Rev: 1, Len: 52 -> DBGP.aml
+38:198  0:020    15. 8AFE1000: 'HPET', '8361', Rev: 1, Len: 56 -> HPET.aml
+38:218  0:020    16. 8AFE0000: 'APIC', '8361', Rev: 3, Len: 188 -> APIC.aml
+38:238  0:020    17. 8AFDF000: 'MCFG', '8361', Rev: 1, Len: 60 -> MCFG.aml
+38:260  0:021    18. 8AFBC000: 'LPIT', '8361', Rev: 1, Len: 148 -> LPIT.aml
+38:281  0:020    19. 8AFBB000: 'WSMT', '8361', Rev: 1, Len: 40 -> WSMT.aml
+38:303  0:022    20. 8AFB9000: 'SSDT', '8361', Rev: 2, Len: 671 -> SSDT-5-8361.aml
+38:321  0:018    21. 8AFB8000: 'SSDT', '8361', Rev: 1, Len: 838 -> SSDT-6-8361.aml
+38:342  0:020    22. 8AFB4000: 'SSDT', '8361', Rev: 2, Len: 12290 -> SSDT-7-8361.aml
+38:362  0:020    23. 8AFB3000: 'SSDT', '8361', Rev: 2, Len: 1310 -> SSDT-8-8361.aml
+38:385  0:023    24. 8AFB2000: 'DBGP', 'SLIC-MPC', Rev: 1, Len: 52 -> DBGP.aml
+38:404  0:018    25. 8AFB1000: 'DBG2', '8361', Rev: 0, Len: 84 -> DBG2.aml
+38:424  0:020    26. 8AFAF000: 'SSDT', '8361', Rev: 2, Len: 4272 -> SSDT-9-8361.aml
+38:463  0:038    27. 8AFAE000: 'SSDT', '8361', Rev: 2, Len: 3806 -> SSDT-10-8361.aml (Found hidden SSDT 7 pcs)
+38:481  0:018        * 8A712018: 'SSDT', 'Cpu0Ist', Rev: 2, Len: 1419  53 53 44 54 8B 05 00 00 02 0F 50 6D 52 65 66 00 Internal length = 1419 -> SSDT-x10_0-Cpu0Ist.aml
+38:502  0:020        * 8A711018: 'SSDT', 'ApIst', Rev: 2, Len: 1628  53 53 44 54 5C 06 00 00 02 A9 50 6D 52 65 66 00 Internal length = 1628 -> SSDT-x10_1-ApIst.aml
+38:522  0:020        * 8A711898: 'SSDT', 'Cpu0Cst', Rev: 2, Len: 1023  53 53 44 54 FF 03 00 00 02 A9 50 6D 52 65 66 00 Internal length = 1023 -> SSDT-x10_2-Cpu0Cst.aml
+38:542  0:020        * 8A711DD8: 'SSDT', 'ApCst', Rev: 2, Len: 394  53 53 44 54 8A 01 00 00 02 33 50 6D 52 65 66 00 Internal length = 394 -> SSDT-x10_3-ApCst.aml
+38:562  0:020        * 8A712DD8: 'SSDT', 'Cpu0Hwp', Rev: 2, Len: 277  53 53 44 54 15 01 00 00 02 A8 50 6D 52 65 66 00 Internal length = 277 -> SSDT-x10_4-Cpu0Hwp.aml
+38:582  0:020        * 8A712A98: 'SSDT', 'ApHwp', Rev: 2, Len: 407  53 53 44 54 97 01 00 00 02 EB 50 6D 52 65 66 00 Internal length = 407 -> SSDT-x10_5-ApHwp.aml
+38:598  0:015        * 8A712898: 'SSDT', 'HwpLvt', Rev: 2, Len: 420  53 53 44 54 A4 01 00 00 02 36 50 6D 52 65 66 00 Internal length = 420 -> SSDT-x10_6-HwpLvt.aml
+38:620  0:022  
+38:620  0:000    28. 8AFAA000: 'SSDT', '8361', Rev: 1, Len: 14869 -> SSDT-11-8361.aml
+38:638  0:018    29. 8AFA9000: 'DMAR', '8361', Rev: 1, Len: 168 -> DMAR.aml
+38:657  0:018    30. 8AFA8000: 'FPDT', 'SLIC-MPC', Rev: 1, Len: 68 -> FPDT.aml
+38:679  0:021    31. 8AFA7000: 'BGRT', '8361', Rev: 1, Len: 56 -> BGRT.aml
+38:698  0:018    Tables in Rsdt: 32
+38:698  0:000    0. 8AFE2000: 'FACP', 'SLIC-MPC', Rev: 5, Len: 268
+38:698  0:000        (Dsdt: 8AFBD000, Facs: 8AF52000, XDsdt: 8AFBD000, XFacs: 0)
+38:698  0:000        8AFBD000: 'DSDT', '8361', Rev: 2, Len: 135739
+38:701  0:003        8AF52000: 'FACS', Ver: 2, Len: 64
+38:701  0:000    1. 8AFFC000: 'UEFI', '8361', Rev: 1, Len: 566
+38:701  0:000    2. 8AFFB000: 'UEFI', '8361', Rev: 1, Len: 66
+38:701  0:000    3. 8AFFA000: 'IHIS', '8361', Rev: 1, Len: 56
+38:701  0:000    4. 8AFF3000: 'SSDT', '8361', Rev: 1, Len: 26786
+38:701  0:000    5. 8AFF2000: 'MSDM', 'SLIC-MPC', Rev: 3, Len: 85
+38:701  0:000    6. 8AFF1000: 'SSDT', '8361', Rev: 2, Len: 1219
+38:701  0:000    7. 8AFF0000: 'SSDT', '8361', Rev: 2, Len: 70
+38:701  0:000    8. 8AFEF000: 'TPM2', '8361', Rev: 3, Len: 52
+38:701  0:000    9. 8AFEB000: 'SSDT', '8361', Rev: 2, Len: 12588
+38:701  0:000    10. 8AFE7000: 'SSDT', '8361', Rev: 2, Len: 15784
+38:701  0:000    11. 8AFE6000: 'ASF!', '8361', Rev: 32, Len: 165
+38:701  0:000    12. 8AFE5000: 'ASPT', '8361', Rev: 7, Len: 52
+38:701  0:000    13. 8AFE4000: 'BOOT', '8361', Rev: 1, Len: 40
+38:701  0:000    14. 8AFE3000: 'DBGP', 'SLIC-MPC', Rev: 1, Len: 52
+38:701  0:000    15. 8AFE1000: 'HPET', '8361', Rev: 1, Len: 56
+38:701  0:000    16. 8AFE0000: 'APIC', '8361', Rev: 3, Len: 188
+38:701  0:000    17. 8AFDF000: 'MCFG', '8361', Rev: 1, Len: 60
+38:701  0:000    18. 8AFBC000: 'LPIT', '8361', Rev: 1, Len: 148
+38:701  0:000    19. 8AFBB000: 'WSMT', '8361', Rev: 1, Len: 40
+38:701  0:000    20. 8AFB9000: 'SSDT', '8361', Rev: 2, Len: 671
+38:701  0:000    21. 8AFB8000: 'SSDT', '8361', Rev: 1, Len: 838
+38:701  0:000    22. 8AFB4000: 'SSDT', '8361', Rev: 2, Len: 12290
+38:701  0:000    23. 8AFB3000: 'SSDT', '8361', Rev: 2, Len: 1310
+38:701  0:000    24. 8AFB2000: 'DBGP', 'SLIC-MPC', Rev: 1, Len: 52
+38:701  0:000    25. 8AFB1000: 'DBG2', '8361', Rev: 0, Len: 84
+38:701  0:000    26. 8AFAF000: 'SSDT', '8361', Rev: 2, Len: 4272
+38:701  0:000    27. 8AFAE000: 'SSDT', '8361', Rev: 2, Len: 3806
+38:701  0:000    28. 8AFAA000: 'SSDT', '8361', Rev: 1, Len: 14869
+38:701  0:000    29. 8AFA9000: 'DMAR', '8361', Rev: 1, Len: 168
+38:701  0:000    30. 8AFA8000: 'FPDT', 'SLIC-MPC', Rev: 1, Len: 68
+38:701  0:000    31. 8AFA7000: 'BGRT', '8361', Rev: 1, Len: 56
