@@ -17,7 +17,7 @@ Here's my [PC specs](https://support.hp.com/in-en/document/c05930048):
 ![Neofetch | Manjaro](linux/screenshots/Screenshot_20190716_184235.png)
 
 #### On macOS:
-**Coming soon!**
+![Neofetch | macOS](macos/screenshots/neofetch.png)
 
 ### Project Structure
 **Coming soon!**
