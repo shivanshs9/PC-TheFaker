@@ -1,21 +1,20 @@
-### ENV Variables ###
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Shivansh Saini <shivanshs9@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-export ZSH=/home/shivanshs9/.oh-my-zsh
-export TERM="xterm-256color"
-export EDITOR='vim'
-export WORKON_HOME=$HOME/.virtualenvs
+### ENV Variables ###
 export PS2=$'\uf292 \e[1;91mTrace...On!\e[0m \uf0d0   '
 export CDPATH=".:$HOME"
-export PATH="$PATH:~/.local/bin:."
-export WINEPREFIX="/mnt/E/wine"
-export PYTHONPATH="/usr/lib/python3.6/site-packages/"
-export CLOUDSDK_PYTHON="/usr/bin/python2"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:/opt/android-studio/jre/bin:$HOME/.gem/ruby/2.6.0/bin:$GOBIN"
+export EDITOR="vim"
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-
-### PowerLevel9K ###
+### PowerLevel9K/10K ###
 DEFAULT_USER="$USER"
 POWERLEVEL9K_ALWAYS_SHOW_USER=false
 POWERLEVEL9K_CONTEXT_TEMPLATE="%n@$(hostname -f)"
@@ -34,95 +33,31 @@ POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND='001'
 POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M:%S}"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status root_indicator background_jobs time)
-
-### Functions ###
-code() {
-	file="$1.sh";
-	if [[ ! -r $file ]]; then
-	   echo -e "#!/bin/sh\n# $file: " > $file;
-  fi
-  if [[ ! -x $file ]]; then 
-	   chmod u+x $file 2>/dev/null;
-  fi
-  vim $file;
-	unset file;
-}
-
-pip-uninstall() {
-	for p in $(pip show "$1" | grep 'Requires:' | tr ',' ' ' | cut -d " " -f2-); do
-		pip uninstall $p $2 || break;
-	done;
-	pip uninstall "$1" $2;
-}
-
-adb-log() {
-	PID=`adb shell ps | grep -i "$1" | cut -c10-15`;
-	adb logcat "*:E" | grep $PID
-}
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status root_indicator background_jobs command_execution_time)
 
 ### ALIASES! ###
 alias cls="tput reset"
 alias rcd="cd - > /dev/null"
 alias which="which -a"
-alias rm="rm -Iv"
 alias wordtoline="tr '\040\011' '\n\n' < " # Converts spaces(\040 in Octal) and tabs(\011) to linefeed(LF, \n, \012)
-alias clear-history=": > $HISTFILE"
-alias proxify="sudo zsh /home/shivanshs9/Network/redsocks.sh"
-alias flushram="free -h && sync && sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && printf '\nRAM Cleared!\n'\" && free -h"
-alias flushswap="free -h && sudo swapoff -a && sudo swapon -a && echo '\nSwap Cleared!\n' && free -h"
-alias nvidia-status="cat /proc/acpi/bbswitch"
 alias https='http --default-scheme=https'
 alias pip-check-update='echo "Checking for python package updates..."; pip list --outdated;'
 alias pip-update="echo 'Updating python packages'; pip list --outdated --format columns | tail -n +3 | awk '{ print $1}' | xargs -n 1 pip install -U"
-alias sysinfo="inxi -Fxxxz"
-alias pip-list="pip freeze -l"
 alias hist="history | less"
+alias nvidia-status="cat /proc/acpi/bbswitch"
 
-### Oh-My-Zsh ###
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd.mm.yyyy"
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-### ZSH & Completion ###
-setopt appendhistory autocd beep
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd beep extendedglob notify
 bindkey -e
-# The following lines were added by compinstall
-zstyle :compinstall filename "$HOME/.zshrc"
+# End of lines configured by zsh-newuser-install
 
-autoload -Uz compinit && compinit
-
-### Autoenv ###
-AUTOENV_ENABLE_LEAVE="true"
-. ~/.autoenv/activate.sh
-antibody bundle < ~/plugins.txt > ~/.zsh_plugins.sh
-. ~/.zsh_plugins.sh
-
-### Python Virtualenvwrapper ###
-. /usr/bin/virtualenvwrapper_lazy.sh
-
+### Source Prezto ###
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 ### HACK TO FIX SPECIAL KEYS IN ZSH ###
 bindkey '^R' history-incremental-pattern-search-backward    # Ctrl + R
@@ -206,59 +141,53 @@ for key kcap seq mode widget (
     sright  kRIT    $'\E[1;2C' select forward-char
     sup     kri     $'\E[1;2A' select 'beginning-of-line exchange-point-and-mark'
     sdown   kind    $'\E[1;2B' select 'end-of-line exchange-point-and-mark'
-
     send    kEND    $'\E[1;2F' select end-of-line
-
     shome   kHOM    $'\E[1;2H' select beginning-of-line
-
     left    kcub1   $'\EOD' deselect-left 'backward-char'
     right   kcuf1   $'\EOC' deselect-right 'forward-char'
-
     end     kend    $'\EOF' deselect end-of-line
-
     home    khome   $'\EOH' deselect beginning-of-line
-
     csleft  x       $'\E[1;6D' select backward-word
     csright x       $'\E[1;6C' select forward-word
     csend   x       $'\E[1;6F' select end-of-line
     cshome  x       $'\E[1;6H' select beginning-of-line
-
     cleft   x       $'\E[1;5D'   deselect-left backward-word
     cright  x       $'\E[1;5C'   deselect-right forward-word
-
     del     kdch1   $'\E[3~' delregion delete-char
     bs      x       $'^?' delregion backward-delete-char
-
     copy    x       $'^[c' copy copy-region-as-kill
     cut     x       $'^[x' copy kill-region
     paste   x       $'^[v' paste kill-region
     sudo    x       $'^[s' prepend sudo
-
   ) {
   eval "key-$key() r-$mode $widget"
   zle -N key-$key
   bindkey ${terminfo[$kcap]-$seq} key-$key
 }
 
-### GCloud stuff ###
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl true
+zstyle :compinstall filename '/home/shivanshs9/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/shivanshs9/google-cloud-sdk/path.zsh.inc' ]; then source '/home/shivanshs9/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/shivanshs9/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shivanshs9/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/shivanshs9/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/shivanshs9/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/shivanshs9/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shivanshs9/google-cloud-sdk/completion.zsh.inc'; fi
 
-### pip ZSH Completion ###
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
+# added by travis gem
+[ -f /home/shivanshs9/.travis/travis.sh ] && source /home/shivanshs9/.travis/travis.sh
 
-xbindkeys
-
-### RVM ###
-export PATH="$PATH:$HOME/.rvm/bin"
+unalias rm
