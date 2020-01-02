@@ -11,8 +11,12 @@ export PS2=$'\uf292 \e[1;91mTrace...On!\e[0m \uf0d0   '
 export CDPATH=".:$HOME"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:/opt/android-studio/jre/bin:$HOME/.gem/ruby/2.6.0/bin:$GOBIN"
+export PATH="$HOME/.rbenv/bin:$PATH:/opt/android-studio/jre/bin:$HOME/.gem/ruby/2.6.0/bin:$GOBIN"
 export EDITOR="vim"
+export XAUTHORITY=~/.Xauthority
+export DISPLAY=":0.0"
+export WINEPREFIX="/mnt/extra/win7-x64"
+export WINEARCH="win64"
 
 ### PowerLevel9K/10K ###
 DEFAULT_USER="$USER"
@@ -58,6 +62,13 @@ bindkey -e
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+eval "$(rbenv init -)"
+eval "$(hub alias -s)"
+
+function win32() {
+	WINEARCH="win32" WINEPREFIX="/mnt/extra/win7-x86" "$@"
+}
 
 ### HACK TO FIX SPECIAL KEYS IN ZSH ###
 bindkey '^R' history-incremental-pattern-search-backward    # Ctrl + R
